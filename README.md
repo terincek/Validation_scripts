@@ -16,11 +16,18 @@ Further I will explain how to use the script for your own purposes.
 You will need to download several files and prepare some data into a correct format for the validation to be possible.
 First, make a /validation folder where you wish to save the validation data. The model outputs may be saved elsewhere.
 There are several modules you need to download, which contain functions used in validation. These modules are day_of_year.py and validation_v2.py - save them into the /validation folder.
-### Linking your own stations database into the validation function
-The validation function is contained in the validation_v2.py module. To link your own stations database, do the following:
 
+### Setting up the validation function
+The validation function is contained in the validation_v2.py file. 
+You will need to link this file to your /validation folder through the "vali_path" variable (the first uncommented line in the script).
 
-You will need a table containing data from the 
+Metadata
+Stations database
+time shift
+grid - make global variable? tiez model lat a lon names
+odstranit cyklus cez variable
+observations
+date in observations
 
 
 
