@@ -33,12 +33,16 @@ The validation_v2.py file contains the validation function and you will need to 
 ### Setting up the validation function in validation_v2.py
 Scroll in the validation_v2.py file until you find the validation function. The function requires the following inputs - path to the model output, model name, grid name, start and end times of the validation, variable to be validated. For each variable, the validation function needs to be run separately.
 You need to adjust a few things before running the validation function for the first time.
-1. Adjusting the grid: Different models will use different grid types. In my example (in validation function), I work with models CMAQ and CAMS. The CMAQ grid was already available as a 2d grid so it was enough for me to open it and save the latitude and longitude information in 2d fields.
-With CAMS, there were 1d fields for both latitude and longitude. I had to first combine them into 2d fields for the rest of the validation function to run smoothly. The way you do this depends on the way your fields are arranged, but check my example in the validation function for model CAMS. You want to end up with 2d field of latitudes and second 2d field of longitudes for each grid cell.
+1. Adjusting the grid: Different models will use different grid types. In my example (in validation function), I work with models CMAQ and CAMS. The CMAQ saves LAT and LON fields in grid file with 4 dimensions (time step, layer, x and y), but time step and layer are constant, therefore it is enough to take X and Y dimensions to get 2d fields for lats and lons.
+With CAMS, there were 1d fields for both latitude and longitude. I had to first combine them into 2d fields for the rest of the validation function to run smoothly. The way you do this depends on the way your data are provided. 
+You want to end up with 2d field of latitudes and a second 2d field of longitudes for each grid cell.
 DISCLAIMER: be sure to check the orientation of your lat and lon fields. The lat[0,0] and lon[0,0] values must both correspond to your model_variable[0,0] value possition. It is possible, especially when making a 2d field out of 1d, that you accidentaly create a transposed field (possibly only for either lats or lons or both).
-2. 
+There is a collumn of station's lat and lon in the model for you to reverse check whether you got values close to the real station's lat and lon.
+2. Model data: You need to specify the way the model data will be loaded. This is usually different for different models. In my example, the CAMS model has a specific model output file for every day. The model CMAQ contains the whole validation period within one file. You will need to link the model time field to the date-time generated in the 'YYYY-MM-DD HH:MM:SS' format.
+3. Observations: 
 
-Stations database
+
+Ked je validovane dlhsie obdobie ako jeden rok tak nespravne mam urceny pocet dni validacie
 time shift - asi by bolo lepsie to spravit opacne - teda posunut modelove data ci?
 observations
 date in observations
