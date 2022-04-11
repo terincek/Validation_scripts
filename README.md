@@ -39,7 +39,12 @@ You want to end up with 2d field of latitudes and a second 2d field of longitude
 DISCLAIMER: be sure to check the orientation of your lat and lon fields. The lat[0,0] and lon[0,0] values must both correspond to your model_variable[0,0] value possition. It is possible, especially when making a 2d field out of 1d, that you accidentaly create a transposed field (possibly only for either lats or lons or both).
 There is a collumn of station's lat and lon in the model for you to reverse check whether you got values close to the real station's lat and lon.
 2. Model data: You need to specify the way the model data will be loaded. This is usually different for different models. In my example, the CAMS model has a specific model output file for every day. The model CMAQ contains the whole validation period within one file. You will need to link the model time field to the date-time generated in the 'YYYY-MM-DD HH:MM:SS' format.
-3. Observations: 
+3. Observations: You need to provide the observed data for individual stations, either in a .csv table for each station or using your internal database. If all stations are in one file with one row for a station, you can open it using the .csv approach but then select only the specific collumn. The observed data will be reindexed - the missing data (no meassurements) will be filled with nan values, to get the same number of time slots as the model.
+4. Statistics: In the list_of_stats variable, list the statistics you wish to validate.
+The default statistics are mean bias (MB), mean gross error (MGE), root mean square error (RMSE), pearson correlation coefficient (R), factor of 2 (FAC2). You can remove them from the list if you don't wish to use them.
+For MB, MGE and RMSE, there are their percentage versions available -  MPE, MGPE and RMSPE, respectively (see http://faculty.smu.edu/tfomby/eco5385_eco6380/lecture/Scoring%20Measures%20for%20Prediction%20Problems.pdf).
+I also included MB%, MGE% and RMSE% - these are MB, MGE and RMSE devided by mean observation value, multiplied by 100 - i.e. percentage from the observed mean. These values put the statistics in context with the mean observed value. To use these two groups of statistics, uncomment them in the validation function and add them to the list_of_stats list.
+There is a default computation of coverage on the stations and the observed mean as this gives you good idea about the observations. 
 
 
 Ked je validovane dlhsie obdobie ako jeden rok tak nespravne mam urceny pocet dni validacie
