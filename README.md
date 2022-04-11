@@ -43,14 +43,12 @@ There is a collumn of station's lat and lon in the model for you to reverse chec
 4. Statistics: In the list_of_stats variable, list the statistics you wish to validate.
 The default statistics are mean bias (MB), mean gross error (MGE), root mean square error (RMSE), pearson correlation coefficient (R), factor of 2 (FAC2). You can remove them from the list if you don't wish to use them.
 For MB, MGE and RMSE, there are their percentage versions available -  MPE, MGPE and RMSPE, respectively (see http://faculty.smu.edu/tfomby/eco5385_eco6380/lecture/Scoring%20Measures%20for%20Prediction%20Problems.pdf).
-I also included MB%, MGE% and RMSE% - these are MB, MGE and RMSE devided by mean observation value, multiplied by 100 - i.e. percentage from the observed mean. These values put the statistics in context with the mean observed value. To use these two groups of statistics, uncomment them in the validation function and add them to the list_of_stats list.
+I also included MB%, MGE% and RMSE% - these are MB, MGE and RMSE devided by mean observation value, multiplied by 100 - i.e. percentage from the average observed mean. These values put the statistics in context with the mean observed value. To use these two groups of statistics, make the "percentages" variable True, uncomment them lower in the statistics section and add them to the list_of_stats list.
 There is a default computation of coverage on the stations and the observed mean as this gives you good idea about the observations. 
 
 
 Ked je validovane dlhsie obdobie ako jeden rok tak nespravne mam urceny pocet dni validacie
 time shift - asi by bolo lepsie to spravit opacne - teda posunut modelove data ci?
-observations
-date in observations
 
 
 
