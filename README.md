@@ -55,10 +55,10 @@ validation_v2.py also contain functions 'comparison' for comparing the results o
 The validation notebook can be found in the master branch as Validation_notebook.ipynb. It uses the validation function to make tables and figures. It contains statistics for all stations, for types of stations and seasonal statistics. The figures are made from hourly data our as various averages. The notebook contains the instructions for use. I highly recommend to use the validation notebook to make the validation results, as it contains a lot of different products, that you can easily save (you don't have to) and provides a good overview of your data without having to save it.
 
 ## The concentrations at stations
-The file concentrations_on_stations.py only works with the observed data on stations, without models. For statistics, it only makes the observed means and coverages. It is usefull when you only analyze the observations. This script has not been yet adjusted for general use. If you wish to use at and can't do it yourself, don't hesitate to contact me.
+The file concentrations_on_stations.py only works with the observed data on stations, without model data. For statistics, it only makes the observed means and coverages. It is usefull when you only analyze the observations and wish to make various figures. This script has not been yet adjusted for general use. If you wish to use at and can't do it yourself, don't hesitate to contact me.
 
 
-
+Please cite this work as Šedivá, T. (2022): Validation scripts: https://github.com/terincek/Validation_scripts/edit/main/README.md (your date)
 
 
 
