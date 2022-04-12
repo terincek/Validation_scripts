@@ -49,8 +49,13 @@ There is a default computation of coverage on the stations and the observed mean
 The statistics data is returned in the form of a pandas Dataframe and contains the selected statistics.
 The validation data will be returned in a form of a xarray dataset, with data variables 'OBS' - observed and 'MOD' - modelled. For each station the observations and model data are saved in form of a 1D array from the validated period. The atribute "Get stations as dictionary" contains the set of commands to get the list of validated stations. This field is very useful in case you want to do work with your data further, like making other statistics or figures. It contains only values meassured at stations and model data from the corresponding grid cells, therefore it is much smaller than the whole data. Further, it is ready for comparison with the observations, since the observations were reindexed to include missing values as nans. If you wish to interpolate the observations, it will be easily done with this data.
 
+validation_v2.py also contain functions 'comparison' for comparing the results of two models without observations but this function has not been adjusted for general use so far. In case you would like to use this function, don't hasitate to contact me. Although, if you are comfortable with working in python, I'm sure you'll figure it out easily on your own - you just need to change the observed data to your second model.
+
 ## The validation notebook
 The validation notebook can be found in the master branch as Validation_notebook.ipynb. It uses the validation function to make tables and figures. It contains statistics for all stations, for types of stations and seasonal statistics. The figures are made from hourly data our as various averages. The notebook contains the instructions for use. I highly recommend to use the validation notebook to make the validation results, as it contains a lot of different products, that you can easily save (you don't have to) and provides a good overview of your data without having to save it.
+
+## The concentrations at stations
+The file concentrations_on_stations.py only works with the observed data on stations, without models. For statistics, it only makes the observed means and coverages. It is usefull when you only analyze the observations. This script has not been yet adjusted for general use. If you wish to use at and can't do it yourself, don't hesitate to contact me.
 
 
 
