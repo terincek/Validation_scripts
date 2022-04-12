@@ -45,11 +45,12 @@ The default statistics are mean bias (MB), mean gross error (MGE), root mean squ
 For MB, MGE and RMSE, there are their percentage versions available -  MPE, MGPE and RMSPE, respectively (see http://faculty.smu.edu/tfomby/eco5385_eco6380/lecture/Scoring%20Measures%20for%20Prediction%20Problems.pdf).
 I also included MB%, MGE% and RMSE% - these are MB, MGE and RMSE devided by mean observation value, multiplied by 100 - i.e. percentage from the average observed mean. These values put the statistics in context with the mean observed value. To use these two groups of statistics, make the "percentages" variable True, uncomment them lower in the statistics section and add them to the list_of_stats list.
 There is a default computation of coverage on the stations and the observed mean as this gives you good idea about the observations. 
+5. Returning the data: 2 datafields will be returned by the function - statistics table and validated data - in this order.
+The statistics data is returned in the form of a pandas Dataframe and contains the selected statistics.
+The validation data will be returned in a form of a xarray dataset, with data variables 'OBS' - observed and 'MOD' - modelled. For each station the observations and model data are saved in form of a 1D array from the validated period. The atribute "Get stations as dictionary" contains the set of commands to get the list of validated stations. This field is very useful in case you want to do work with your data further, like making other statistics or figures. It contains only values meassured at stations and model data from the corresponding grid cells, therefore it is much smaller than the whole data. Further, it is ready for comparison with the observations, since the observations were reindexed to include missing values as nans. If you wish to interpolate the observations, it will be easily done with this data.
 
-
-Ked je validovane dlhsie obdobie ako jeden rok tak nespravne mam urceny pocet dni validacie
-time shift - asi by bolo lepsie to spravit opacne - teda posunut modelove data ci?
-
+## The validation notebook
+The validation notebook can be found in the master branch as Validation_notebook.ipynb. It uses the validation function to make tables and figures. It contains statistics for all stations, for types of stations and seasonal statistics. The figures are made from hourly data our as various averages. The notebook contains the instructions for use. I highly recommend to use the validation notebook to make the validation results, as it contains a lot of different products, that you can easily save (you don't have to) and provides a good overview of your data without having to save it.
 
 
 
